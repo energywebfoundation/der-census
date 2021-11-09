@@ -1,0 +1,117 @@
+{
+  "type": "object",
+  "required": [
+    "uuid",
+    "submitter-address",
+    "lattitude",
+    "longitude",
+    "type",
+    "peak-generation",
+    "unit",
+    "signature"
+  ],
+  "properties": {
+    "uuid": {
+      "$id": "#/properties/id",
+      "type": "string",
+      "title": "UUID",
+      "description": "Ths SHA-256 digest of the JSON.stringify() of the object, with the uui and signature attributes undefined",
+      "default": "",
+      "examples": [
+        "0x4295858f1929e8c6055e2eced9fd12ff9126c07fdabe4ed077c65d60e8fceda0"
+      ]
+    },
+    "submitter-address": {
+      "$id": "#/properties/submitter-address",
+      "type": "string",
+      "title": "The EWC address of the submitter",
+      "description": "in order to submit an entry, the data must be signed hence the requirement of having an address",
+      "default": "",
+      "examples": [
+        "0xC62e02ddc6C1A78ca63F144253E74c85ecB76B74"
+      ]
+    },
+    "lattitude": {
+      "$id": "#/properties/lattitude",
+      "type": "string",
+      "title": "The lattitude of the production site",
+      "description": "The lattitude portion of the geo localisation",
+      "default": "",
+      "examples": [
+        "46.832287945848506"
+      ]
+    },
+    "longitude": {
+      "$id": "#/properties/longitude",
+      "type": "string",
+      "title": "The longitude of the production iste",
+      "description": "The longitude portion of the geo localisation",
+      "default": "",
+      "examples": [
+        "6.826177865840906"
+      ]
+    },
+    "type": {
+      "$id": "#/properties/type",
+      "type": "string",
+      "title": "what is the type of generation method",
+      "description": "How does the installation produce electricity",
+      "enum": [
+        "solar",
+        "wind",
+        "hydro-dam",
+        "hydro-fluvial",
+        "tidal",
+        "geo-thermal",
+        "bio-mass"
+      ],
+      "default": "solar",
+      "examples": [
+        "solar"
+      ]
+    },
+    "peak-generation": {
+      "$id": "#/properties/peak-generation",
+      "type": "integer",
+      "title": "Maximum generation output in KW",
+      "description": "How many KW of electricity this facility can generate at its peak",
+      "default": 0,
+      "maximum": 5,
+      "examples": [
+        16
+      ]
+    },
+    "image": {
+      "$id": "#/properties/image",
+      "type": "string",
+      "contentEncoding": "base64",
+      "contentMediaType": "image/png",
+      "title": "An optional picture of the production facility",
+      "description": "A picture allows to verify the correctness of the entry",
+      "default": "",
+      "examples": [
+        "iVBORw0KGgoAAAANSUhEUgAABLAAAA...4q5tjqfAAAAABJRU5ErkJggg=="
+      ]
+    },
+    "signature": {
+      "$id": "#/properties/signature",
+      "type": "string",
+      "title": "The ECDSA signature of the UUID by the ",
+      "description": "The signature is computed by the application that allows to generate entries and should not be entered by hand",
+      "default": "",
+      "examples": [
+        "0x81ef83ad1fa008ab50b5fb6936ba16240755aaed012483d35224ccfb5226f981f12acac152139f620dff41212a950c13289e3a5ab85947053991fe81c19edb89"
+      ]
+    },
+    "comment": {
+      "$id": "#/properties/comment",
+      "type": "string",
+      "title": "A free text comment about the entry",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ..."
+      ]
+    }
+  }
+}
